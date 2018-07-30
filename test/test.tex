@@ -1,0 +1,46 @@
+\documentclass{beamer}
+
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[russian, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usetikzlibrary{arrows.meta,shapes,snakes}
+
+% tikz
+\makeatletter
+\tikzset{circle split part fill/.style  args={#1,#2}{%
+ alias=tmp@name, % Jake's idea !!
+  postaction={%
+    insert path={
+     \pgfextra{%
+     \pgfpointdiff{\pgfpointanchor{\pgf@node@name}{center}}%
+                  {\pgfpointanchor{\pgf@node@name}{east}}%
+     \pgfmathsetmacro\insiderad{\pgf@x}
+      %\begin{scope}[on background layer]
+      %\fill[#1] (\pgf@node@name.base) ([xshift=-\pgflinewidth]\pgf@node@name.east) arc
+      %                    (0:180:\insiderad-0.5\pgflinewidth)--cycle;
+      %\fill[#2] (\pgf@node@name.base) ([xshift=\pgflinewidth]\pgf@node@name.west)  arc
+      %                     (180:360:\insiderad-0.5\pgflinewidth)--cycle;
+      \fill[#1] (\pgf@node@name.base) ([xshift=-\pgflinewidth]\pgf@node@name.east) arc
+                          (0:180:\insiderad-\pgflinewidth)--cycle;
+      \fill[#2] (\pgf@node@name.base) ([xshift=\pgflinewidth]\pgf@node@name.west)  arc
+                           (180:360:\insiderad-\pgflinewidth)--cycle;            %  \end{scope}
+         }}}}}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{Test}
+	\begin{center}
+		\begin{tikzpicture}
+			\input{teximages/test.tex}
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\end{document}

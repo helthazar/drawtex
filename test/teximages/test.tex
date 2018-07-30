@@ -1,0 +1,17 @@
+
+	 \tikzstyle{every node} = [draw, fill = white, circle split, circle split part fill={white,lightgray}, scale = 0.67]
+	 \node (a) at (0, 0) {5, 1 \nodepart{lower} 2, 8};
+	 \node (b) at (-1.2, -1.2) {3, 0 \nodepart{lower} 3, 5};
+	 \node (c) at (1.2, -1.2) {1, 0 \nodepart{lower} 1, 1};
+	 \node (d) at (-1.8, -2.4) {1, 0 \nodepart{lower} 0, 0};
+	 \node (e) at (-0.6, -2.4) {1, 0 \nodepart{lower} 2, 2};
+	\foreach \from/\to in {a/b, a/c, b/e, b/d}
+		\draw [thick] [->] (\from) -- (\to);
+	 \tikzstyle{every node} = [draw, fill = white, circle split, circle split part fill={white,lightgray}, scale = 0.67]
+		\node [draw = blue, thick] (a) at (0 - 0.5, 0 - 4.5) {2, 0 \nodepart{lower} 2, 2};
+		\node (b) at (-1.8 - 0.5, 0 - 4.5) {1, 0 \nodepart{lower} 1, 1};
+		\node (c) at (2.4 - 0.5, -1.2 - 4.5) {1, 0 \nodepart{lower} 2, 2};
+		\node (d) at (0.6 - 0.5, -1.2 - 4.5) {1, 0 \nodepart{lower} 0, 0};
+		\node (e) at (1.8 - 0.5, 0 - 4.5) {2 \nodepart{lower} 3, 6};
+	\foreach \from/\to in {e/c, a/d}
+		\draw [thick] [->] (\from) -- (\to);
